@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         val listener = ImageDecoder.OnHeaderDecodedListener { _, info, _ -> android.util.Log.e("ImageDecoder", "$info") }
         val src = ImageDecoder.createSource(contentResolver, drawableToUri(R.drawable.earth))
-        ImageDecoder.decodeDrawable(src, listener)?.apply {
+        ImageDecoder.decodeDrawable(src, listener).apply {
             imageView.setImageDrawable(this)
             if (this is Animatable2) {
                 start()
